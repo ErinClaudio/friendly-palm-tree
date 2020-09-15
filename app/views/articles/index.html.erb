@@ -1,30 +1,35 @@
-<h1>Articles listing page</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Article</th>
-    <th>Actions</th>
-    <th>Edit</th>
-  </tr>
-  </thead>
+  <div class="container">
+    <h1 class="text-center">Articles page</h1>
+  </div>
 
-  <tbody>
   <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.description %></td>
-      <td><%= link_to 'Article', article_path(article)%></td>
-      <td><%= link_to 'Delete', article_path(article), method: :delete, data:{confirm: "are you sure?"} %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    </tr>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-5 mt-4">
+              <div class="card text-center">
+                <div class="card-body ce">
+                    <h5 class="card-title"><%= article.title %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text"><%= article.description %></p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
   <% end %>
-  </tbody>
-</table>
+<!--<div class="container">-->
+<!--     <td><%#= link_to 'Article', article_path(article)%>-->
+<!--        <td><%#= link_to 'Delete', article_path(article), method: :delete, data:{confirm: "are you sure?"} %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_article_path(article) %></td>-->
+<!--      </tr>-->
+    <%# end %>
 
-<p>
-  <%= link_to 'Create new article', new_article_path %> |
-  <%= link_to 'Home page', root_path %>
-</p>
+  <div class="container">
+    <p>
+      <%= link_to 'Create new article', new_article_path %> |
+      <%= link_to 'Home page', root_path %>
+    </p>
+  </div>
