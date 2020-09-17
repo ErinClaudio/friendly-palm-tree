@@ -7,13 +7,18 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-5 mt-4">
-              <div class="card text-center">
+              <div class="card text-center shadow mb-5 bg-white rounded">
                 <div class="card-body ce">
-                    <h5 class="card-title"><%= article.title %></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text"><%= article.description %></p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <h5 class="card-title"><%= link_to article.title, article_path(article),class: 'text-success' %></h5>
+                    <h6 class="card-subtitle mb-2 font-italic">by Erin Claudio</h6>
+                    <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+                  <%= link_to "View", article_path(article), class: "btn btn-outline-success" %>
+                  <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
+                  <%= link_to "Delete", article_path(article), class: "btn btn-outline-success", method: :delete, data: {confirm: "Are you sure?"} %>
+                </div>
+                <div class="card-footer text_muted">
+<!--                  <small>Created<%#= article.created_id %></small>-->
+                  <small>Updated at <%= time_ago_in_words(article.updated_at) %></small>
                 </div>
               </div>
           </div>
