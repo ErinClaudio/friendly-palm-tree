@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="col-8"></div>
+      <%= render 'shared/errors', obj: @user %>
+        <%= form_with(model: @user, class: "shadow p-3 mb-0 bg-info", local: true) do |f|%>
+          <div class="form-group row">
+              <%=f.label :username, class: "col-2 col-form-lable"%>
+              <div class="col-8">
+                <%=f.text_field :username, class: "form-control shadow rounded", placeholder: 'Enter a username' %>
+              </div>
+          </div>
+
+        <div class="form-group row">
+              <%=f.label :email, class: "col-2 col-form-lable" %>
+              <div class="col-8">
+              <%=f.email_field :email, class: "form-control shadow rounded", placeholder: 'enter your email address' %>
+            </div>
+        </div>
+
+        <div class="form-group row">
+              <%=f.label :password, class: "col-2 col-form-lable" %>
+              <div class="col-8">
+              <%=f.password_field :password, class: "form-control shadow rounded", placeholder: 'choose a password' %>
+            </div>
+        </div>
+
+
+        <div class="form-group row justify-content-center">
+          <%=f.submit class:'btn btn-outline-light btn-lg'%>
+        </div>
+
+        <%end %>
+
+    </div>
+</div>
+<%= link_to 'return to articles ', articles_path, class: 'd-flex justify-content-center'%>
